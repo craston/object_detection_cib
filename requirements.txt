@@ -1,0 +1,33 @@
+-r ./requirements-colab.txt
+
+pillow==9.5.0
+
+# General
+typer
+gdown
+rich
+more-itertools
+graphviz
+
+# Formatting, linting, types
+mypy
+black
+pylint
+ruff
+types-requests
+types-PyYAML
+
+# testing
+pytest
+
+# VIS
+seaborn
+
+albumentations
+
+# ML Packagaes
+torch==2.0.1
+torchvision==0.15.2
+tensorboard
+
+hydra-core

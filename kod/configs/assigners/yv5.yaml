@@ -1,0 +1,10 @@
+defaults:    
+  - /anchor_boxes/voc_s8@anchor_info.ll
+  - /anchor_boxes/voc_s16@anchor_info.ml
+  - /anchor_boxes/voc_s32@anchor_info.hl
+
+_target_: kod.core.label_assignment.yv5.Yolov5LabelAssigner
+threshold: 4.0
+anchor_info:  
+  _target_: kod.core.label_assignment.yv5.AssignmentAnchorInfo
+    

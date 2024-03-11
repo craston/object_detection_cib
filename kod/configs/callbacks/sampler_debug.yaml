@@ -1,0 +1,4 @@
+sampler_debug:
+  _target_: kod.lightning.callbacks.sampler_debug.SamplerDebug
+  plot_title: "instance per class"
+  sampler_output_dir: "./sampler_debug"

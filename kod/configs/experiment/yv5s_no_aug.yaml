@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - yv5s
+  - /data/augmentations/no_aug_params@data.train_data_augmentor.aug_params
+  - override /data: default  
+  
+data:
+  train_data_augmentor:
+    _target_: kod.data.augmentations.default.TrainSampleAugmentor
+    
+  mosaic_augmentor: null
+    
+
+      

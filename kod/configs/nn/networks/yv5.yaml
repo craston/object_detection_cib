@@ -1,0 +1,2 @@
+_target_: kod.nn.networks.yolov5.Yolov5Network
+num_anchors_per_cell: 3  

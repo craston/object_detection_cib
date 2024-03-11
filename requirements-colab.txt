@@ -1,0 +1,17 @@
+einops
+
+torchinfo 
+torchview
+
+onnx
+onnxsim
+onnxruntime
+onnxruntime-gpu; sys_platform != "darwin"
+
+vision-evaluation
+data-gradients==0.1.4
+wandb
+fiftyone
+lightning
+
+hydra-colorlog

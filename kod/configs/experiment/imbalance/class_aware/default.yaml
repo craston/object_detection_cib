@@ -1,0 +1,5 @@
+# @package _global_
+
+defaults:
+  - yv5s
+  - /data/class_aware@data.sampler

@@ -1,0 +1,15 @@
+_target_: kod.data.augmentations.default.AugParams
+affine_params: 
+  _target_: kod.data.augmentations.default.AffineParams
+  degrees:  0.0  
+  translate:  0.0
+  scale: 0.0
+  shear:  0.0  
+  perspective:  0.0  
+hsv_params:
+  _target_: kod.data.augmentations.default.HSVParams
+  hue: 0.0  
+  saturation: 0.
+  value: 0.0
+flip_lr_prob: 0.0
+image_color_transforms: false

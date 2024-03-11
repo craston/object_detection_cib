@@ -1,0 +1,9 @@
+# @package _global_
+
+defaults:
+  - override /model: yv5
+
+model:
+  net:
+    deepen_factor: 0.33
+    widen_factor: 0.50

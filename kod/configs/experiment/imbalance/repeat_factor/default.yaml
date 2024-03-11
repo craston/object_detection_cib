@@ -1,0 +1,5 @@
+# @package _global_
+
+defaults:
+  - yv5s
+  - /data/repeat_factor@data.sampler

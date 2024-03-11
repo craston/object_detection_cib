@@ -1,0 +1,13 @@
+_target_: kod.core.anchors.info.AnchorBoxInfo
+stride: 32
+boxes_wh:
+  - _target_: kod.core.types.FeatureShape
+    width: 116
+    height: 90
+  - _target_: kod.core.types.FeatureShape
+    width: 156
+    height: 198
+  - _target_: kod.core.types.FeatureShape
+    width: 373
+    height: 326
+  

@@ -1,0 +1,17 @@
+_target_: kod.data.augmentations.albu.TrainSampleAugmentor
+augmentations:
+  - _target_: kod.data.augmentor.BlurAugmentation
+    p: 0.01
+  - _target_: kod.data.augmentor.MedianBlurAugmentation
+    p: 0.01
+  - _target_: kod.data.augmentor.ToGrayAugmentation
+    p: 0.01   
+  - _target_: kod.data.augmentor.CLAHEAugmentation
+    p: 0.01
+  - _target_: kod.data.augmentor.HSVAugmentation
+    hue: 0.015
+    saturation: 0.7
+    value: 0.4
+    p: 0.5
+  - _target_: kod.data.augmentor.HorizontalFlipAugmentation
+    p: 0.5    

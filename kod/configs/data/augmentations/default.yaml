@@ -1,0 +1,6 @@
+defaults:    
+  - aug_params@aug_params
+
+_target_: kod.data.augmentations.default.TrainSampleAugmentor
+
+  

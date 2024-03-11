@@ -1,0 +1,19 @@
+defaults:    
+  - /nn/networks/yv5@net
+  - /nn/losses/yv5@loss
+  - /nn/optimizers/smart_sgd@smart_optimizer
+  - /nn/schedulers/linear@lr_scheduler
+  - /anchor_boxes/voc_s8@anchor_info.ll
+  - /anchor_boxes/voc_s16@anchor_info.ml
+  - /anchor_boxes/voc_s32@anchor_info.hl
+
+_target_: kod.lightning.experiments.yv5_baseline.exp.DefaultYolov5Experiment
+anchor_info:
+  _target_:  kod.lightning.experiments.yv5_baseline.type_defs.LayerwiseAnchorInfo
+optimizer_warmup_updater:
+  _target_: kod.lightning.experiments.yv5_baseline.warmup.OptimizerWarmupUpdater
+  warmup_epochs: 3
+  warmup_bias_lr: 0.1
+  warmup_momentum: 0.8
+  momentum: 0.937 # somehow need to get this dynamically
+

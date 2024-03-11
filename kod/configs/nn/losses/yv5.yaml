@@ -1,0 +1,17 @@
+defaults:
+  - /assigners/yv5@assigner
+  
+_target_: kod.lightning.experiments.yv5_baseline.loss.Yolov5Loss
+hparams:
+  _target_: kod.lightning.experiments.yv5_baseline.loss.Yolov5LossParams
+  lambda_classification:  0.5
+  lambda_localization: 0.05
+  lambda_objectness: 1.0
+  lambda_ll_objectness: 4.0
+  lambda_ml_objectness: 1.0
+  lambda_hl_objectness: 0.4  
+iou_calculator:
+  _target_: kod.core.bbox.iou.IoUCalculator
+  iou_type: ciou
+  eps: 1e-7
+  

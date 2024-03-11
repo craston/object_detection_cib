@@ -1,0 +1,18 @@
+defaults:    
+  - augmentations/default@train_data_augmentor
+
+_target_: kod.lightning.data_module.DetectionDataModule
+batch_size: 64
+num_workers: 8
+enable_ram_cache: True
+sample_reader:
+  _target_: kod.data.sample_reader.SampleReader    
+  target_image_size: 416
+  fake_mode: False
+validation_data_augmentor:
+  _target_: kod.data.augmentations.albu.ValidationSampleAugmentor
+mosaic_augmentor:
+  _target_: kod.data.mosaic.MosaicAugmentor
+  target_image_size: ${..sample_reader.target_image_size}
+sampler: null
+mixup_prob: 0.0

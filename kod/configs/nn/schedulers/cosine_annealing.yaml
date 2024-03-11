@@ -1,0 +1,3 @@
+_target_: kod.nn.optim.schedulers.CosineAnnealingScheduler
+_partial_: true
+lrf: 0.01

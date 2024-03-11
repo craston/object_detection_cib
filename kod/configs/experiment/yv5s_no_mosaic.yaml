@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - yv5s
+  - override /data: default
+
+data:
+  mosaic_augmentor: null
+    
+
+      

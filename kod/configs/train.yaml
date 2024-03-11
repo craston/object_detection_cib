@@ -1,0 +1,38 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - paths: default
+  - extras: default
+  - hydra: default
+  - data: default
+  - callbacks: default
+  - model: yv5
+  - trainer: default    
+  - logger: many_loggers
+  - experiment: null
+  - debug: null
+  
+
+task_name: "train"  
+tags: ["dev"]
+
+train: True
+test: False
+
+dataset_name: voc-toy
+
+seed: 2023
+
+compile: False
+
+ckpt_path: null
+
+disable_progress_bar: False
+
+progress_interval: 20
+
+sampler_inspection: False
+plot_title: null
+sampler_output_dir: null
+use_loss_weights: False

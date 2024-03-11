@@ -14,11 +14,7 @@ from kod.data.cache import DatasetInfo
 from kod.data.filter import filter_dataset
 
 
-class RandomCycleIter:
-    """
-    Class returns a random permutation of a Sequence and shuffles the sequence when the returns to the end
-    """
-
+class RandomCycleSampler:
     def __init__(self, data: Sequence[int], generator: Optional[Generator] = None):
         self.data = data
         self.length = len(data)
@@ -43,17 +39,6 @@ class RandomCycleIter:
 
 
 class ClassAwareSampler(Sampler):
-    """
-    Sampler to help alleviate class imbalance issues.
-    Fill a mini-batch as uniform as possible with respect to classes.
-    There are two types of lists:(1) class list and (2) per-class image list.
-    For a training min-batch,  first sample a class X in the class list,
-    then sample an image in the per-class image list of class X.
-
-    When reaching the end of the per-class image list of class X, a shuffle operation is performed.
-    When reaching the end of class list, a shuffle operation is performed to reorder the classes.
-    (https://arxiv.org/pdf/1512.05830.pdf)
-    """
 
     def __init__(self, dataset_info: DatasetInfo):
         self.dataset_info = dataset_info
@@ -64,7 +49,7 @@ class ClassAwareSampler(Sampler):
         self.label_to_index = dict(zip(labels, range(len(labels))))
 
         # List of Classes indices
-        self.label_iter_list = RandomCycleIter(list(self.label_to_index.values()))
+        self.label_iter_list = RandomCycleSampler(list(self.label_to_index.values()))
 
         # Per-class image-index list
         self.data_iter_dict: dict[int, Iterator[int]] = dict()
@@ -73,7 +58,7 @@ class ClassAwareSampler(Sampler):
                 ds_info=self.dataset_info, new_name=k, classes_to_include=[k]
             ).samples
             class_dataset_ids = [x.id for x in class_dataset]
-            self.data_iter_dict[v] = RandomCycleIter(
+            self.data_iter_dict[v] = RandomCycleSampler(
                 [img_ids_index[x] for x in class_dataset_ids]
             )
 
